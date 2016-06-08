@@ -1,4 +1,4 @@
-require "ethereum/base/version"
+require_relative "../ethereum"
 
 module Ethereum
   module Base
