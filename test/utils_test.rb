@@ -26,4 +26,24 @@ class UtilsTest < Minitest::Test
     assert_equal 255, big_endian_to_int("\x00\x00\xff")
   end
 
+  def test_ripemd160
+    assert_equal "\xc8\x1b\x94\x934 \"\x1az\xc0\x04\xa9\x02B\xd8\xb1\xd3\xe5\x07\r", ripemd160("\x00")
+  end
+
+  def test_hash160
+    assert_equal "\x9f\x7f\xd0\x96\xd3~\xd2\xc0\xe3\xf7\xf0\xcf\xc9$\xbe\xefO\xfc\xebh", hash160("\x00")
+    assert_equal "9f7fd096d37ed2c0e3f7f0cfc924beef4ffceb68", hash160_hex("\x00")
+  end
+
+  def test_ceil32
+    assert_equal 0,   ceil32(0)
+    assert_equal 32,  ceil32(1)
+    assert_equal 256, ceil32(256)
+    assert_equal 256, ceil32(250)
+  end
+
+  def test_coerce_to_int
+    assert_equal 571329460454981322332848927582483177110542410654, coerce_to_int("d\x13L\x8F\x0E\xD5*\x13\xBD\n\x00\xFF\x9F\xC6\xDBn\b2\xE3\x9E")
+  end
+
 end
