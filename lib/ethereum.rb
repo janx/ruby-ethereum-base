@@ -3,6 +3,6 @@ require 'rlp'
 
 module Ethereum
 
-  autoload :Utils, 'ethereum/utils'
+  autoload :Base, 'ethereum/base'
 
 end

@@ -2,6 +2,10 @@ require_relative "../ethereum"
 
 module Ethereum
   module Base
-    # Your code goes here...
+
+    VERSION = "0.1.0"
+
+    autoload :Utils, 'ethereum/base/utils'
+
   end
 end

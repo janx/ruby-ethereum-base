@@ -1,4 +1,4 @@
-module Ethereum
+module Ethereum::Base
   module Utils
 
     def sha256(x)
