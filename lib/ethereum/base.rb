@@ -1,4 +1,5 @@
-require_relative "../ethereum"
+require 'digest/sha3'
+require 'rlp'
 
 module Ethereum
   module Base
