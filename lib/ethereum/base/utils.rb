@@ -25,6 +25,14 @@ module Ethereum::Base
       RLP::Utils.decode_hex s
     end
 
+    def encode_rlp(b)
+      RLP.encode b
+    end
+
+    def decode_rlp(s)
+      RLP.decode s
+    end
+
     def big_endian_to_int(s)
       RLP::Sedes.big_endian_int.deserialize s.sub(/\A(\x00)+/, '')
     end

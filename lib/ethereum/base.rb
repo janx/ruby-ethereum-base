@@ -6,6 +6,7 @@ module Ethereum
 
     VERSION = "0.1.2"
 
+    autoload :Sedes, 'ethereum/base/sedes'
     autoload :Utils, 'ethereum/base/utils'
 
   end
