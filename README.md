@@ -1,5 +1,7 @@
 # Ethereum::Base
 
+[![Build Status](https://travis-ci.org/janx/ruby-ethereum-base.svg?branch=master)](https://travis-ci.org/janx/ruby-ethereum-base)
+
 A gem to provide some basic utilities for common Ethereum functions.
 
 ## Installation
