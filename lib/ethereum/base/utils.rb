@@ -25,14 +25,6 @@ module Ethereum::Base
       RLP::Utils.decode_hex s
     end
 
-    def encode_rlp(b)
-      RLP.encode b
-    end
-
-    def decode_rlp(s)
-      RLP.decode s
-    end
-
     def big_endian_to_int(s)
       RLP::Sedes.big_endian_int.deserialize s.sub(/\A(\x00)+/, '')
     end
@@ -43,16 +35,6 @@ module Ethereum::Base
 
     def remove_0x_head(s)
       s[0,2] == '0x' ? s[2..-1] : s
-    end
-
-    def parse_int_or_hex(s)
-      if s.is_a?(Numeric)
-        s
-      elsif s[0,2] == '0x'
-        big_endian_to_int decode_hex(normalize_hex_without_prefix(s))
-      else
-        s.to_i
-      end
     end
 
     def normalize_hex_without_prefix(s)
@@ -73,10 +55,6 @@ module Ethereum::Base
 
     def hash160_hex(x)
       encode_hex hash160(x)
-    end
-
-    def to_signed(i)
-      i > Constant::INT_MAX ? (i-Constant::TT256) : i
     end
 
     def ceil32(x)
