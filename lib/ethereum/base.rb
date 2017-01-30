@@ -5,6 +5,7 @@ module Ethereum
   module Base
 
     BYTE_ZERO = "\x00".freeze
+    UINT256_MAX = 2**256 - 1
 
     autoload :Gas, 'ethereum/base/gas'
     autoload :Secp256K1, 'ethereum/base/secp256k1'

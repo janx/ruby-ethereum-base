@@ -104,12 +104,18 @@ module Ethereum::Base
     end
 
     def encode_int(n)
-      raise ArgumentError, "Integer invalid or out of range: #{n}" unless n.is_a?(Integer) && n >= 0 && n <= UINT_MAX
+      unless n.is_a?(Integer) && n >= 0 && n <= UINT256_MAX
+        raise ArgumentError, "Integer invalid or out of range: #{n}"
+      end
+
       int_to_big_endian n
     end
 
     def decode_int(v)
-      raise ArgumentError, "No leading zero bytes allowed for integers" if v.size > 0 && (v[0] == Constant::BYTE_ZERO || v[0] == 0)
+      if v.size > 0 && (v[0] == BYTE_ZERO || v[0] == 0)
+        raise ArgumentError, "No leading zero bytes allowed for integers"
+      end
+
       big_endian_to_int v
     end
 
