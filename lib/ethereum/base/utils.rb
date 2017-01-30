@@ -141,5 +141,10 @@ module Ethereum::Base
       end
     end
 
+    def lpad(x, symbol, l)
+      return x if x.size >= l
+      symbol * (l - x.size) + x
+    end
+
   end
 end
