@@ -46,4 +46,12 @@ class UtilsTest < Minitest::Test
     assert_equal 571329460454981322332848927582483177110542410654, coerce_to_int("d\x13L\x8F\x0E\xD5*\x13\xBD\n\x00\xFF\x9F\xC6\xDBn\b2\xE3\x9E")
   end
 
+  def test_coerce_to_bytes
+    assert_equal "d\x13L\x8F\x0E\xD5*\x13\xBD\n\x00\xFF\x9F\xC6\xDBn\b2\xE3\x9E", coerce_to_bytes(571329460454981322332848927582483177110542410654)
+  end
+
+  def test_coerce_addr_to_hex
+    assert_equal "64134c8f0ed52a13bd0a00ff9fc6db6e0832e39e", coerce_addr_to_hex(571329460454981322332848927582483177110542410654)
+  end
+
 end
